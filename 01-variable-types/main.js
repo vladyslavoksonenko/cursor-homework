@@ -4,44 +4,46 @@ const priceRateMax = 123.965;
 const priceRateComfort = 90.2345;
 const pay = 500;
 
-console.log(Math);
-console.log(2);
-// Максимальне число
-console.log(`Максимальне число: ${Math.max(priceRateMin, priceRateComfort, priceRateMax)}`);
+// Максимальне число 
+const numberMax = Math.max(priceRateMin, priceRateComfort, priceRateMax);
 
 // Мінімальне число
-console.log(`Мінімальне число: ${Math.min(priceRateMin, priceRateComfort, priceRateMax)}`);
+const numberMin = Math.min(priceRateMin, priceRateComfort, priceRateMax);
 
 // Вартість всіх товарів
 const priceSum = priceRateComfort + priceRateMax + priceRateMin;
-console.log(`Вартість всіх товарів: ${priceSum}`);
 
 // Вартість всіх товарів з округленням
 const priceSumFloor = Math.floor(priceRateMin) + Math.floor(priceRateMax) + Math.floor(priceRateComfort);
-console.log(`Вартість всіх товарів з округленням ${priceSumFloor}`);
 
-// Вартість всіх товарів округлена до сотень НЕ ЗАКІНЧЕНО
-// let i;
-
-// for (i = 1; i > priceSum.length; i++) {
-//     priceSum[i] = 0;
-//     console.log(`Вартість всіх товарів округлена до сотень: ${priceSum}`);
-// }
-//  console.log(Math.round(priceSum).length);
+// Вартість всіх товарів округлена до сотень
+const hundredsSum = Math.round(priceSum / 100) * 100;
 
 // Булеве значення чи є парним
-priceSumFloor % 2 ? console.log(false) : console.log(true);
+let booleanSumFloor;
+priceSumFloor % 2 ? booleanSumFloor = false : booleanSumFloor = true;
 
 // Сумма решти при оплаті
-console.log(`Сумма решти при оплаті ${pay}: ${priceSum - pay}`);
+const surrender = priceSum - pay;
 
 // Cереднє значення цін
-console.log(`Cереднє значення цін: ${(priceSum / 2).toFixed(2)}`);
+const middlePrice = (priceSum / 2).toFixed(2);
 
-// Знижка НЕ ЗАКІНЧЕНО
+// Знижка
 const discount = (Math.random() * 100).toFixed(0);
+const sumPay = (priceSum - ((priceSum * discount) / 100)).toFixed(2);
+const property = priceSum / 2;
+const arrival = Math.round(sumPay - property);
+console.log(`Максимальне число: ${numberMax}
+Мінімальне число: ${numberMin}
+Вартість всіх товарів: ${priceSum}
+Вартість всіх товарів з округленням ${priceSumFloor}
+Вартість всіх товарів округлена до сотень ${hundredsSum}
+Булеве значення чи парне ${booleanSumFloor}
+Сумма решти при оплаті ${pay}: ${surrender}
+Cереднє значення цін: ${middlePrice}
+Ваша знижка ${discount}% Сумма до оплати: ${sumPay}
+Чистий прибуток ${arrival};
 
-console.log(`Ваша знижка ${discount}% Сумма до оплати: ${(priceSum - (priceSum * discount / 100)).toFixed(2)}`);
-
-
+`);
 
