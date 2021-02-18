@@ -24,7 +24,7 @@ let booleanSumFloor;
 priceSumFloor % 2 ? booleanSumFloor = false : booleanSumFloor = true;
 
 // Сумма решти при оплаті
-const surrender = priceSum - pay;
+const surrender = pay - priceSum;
 
 // Cереднє значення цін
 const middlePrice = (priceSum / 3).toFixed(2);
