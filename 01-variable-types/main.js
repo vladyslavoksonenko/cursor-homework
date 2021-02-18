@@ -27,7 +27,7 @@ priceSumFloor % 2 ? booleanSumFloor = false : booleanSumFloor = true;
 const surrender = priceSum - pay;
 
 // Cереднє значення цін
-const middlePrice = (priceSum / 2).toFixed(2);
+const middlePrice = (priceSum / 3).toFixed(2);
 
 // Знижка
 const discount = (Math.random() * 100).toFixed(0);
