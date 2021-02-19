@@ -20,8 +20,7 @@ const priceSumFloor = Math.floor(priceRateMin) + Math.floor(priceRateMax) + Math
 const hundredsSum = Math.round(priceSum / 100) * 100;
 
 // Булеве значення чи є парним
-let booleanSumFloor;
-priceSumFloor % 2 ? booleanSumFloor = false : booleanSumFloor = true;
+const booleanSumFloor = priceSumFloor % 2 == 0;
 
 // Сумма решти при оплаті
 const surrender = pay - priceSum;
@@ -30,20 +29,20 @@ const surrender = pay - priceSum;
 const middlePrice = (priceSum / 3).toFixed(2);
 
 // Знижка
-const discount = (Math.random() * 100).toFixed(0);
-const sumPay = (priceSum - ((priceSum * discount) / 100)).toFixed(2);
+const discount = Math.trunc((Math.random() * 100));
+const sumPay = Number((priceSum - ((priceSum * discount) / 100)).toFixed(2));
 const property = priceSum / 2;
 const arrival = Math.round(sumPay - property);
-console.log(`Максимальне число: ${numberMax}
-Мінімальне число: ${numberMin}
-Вартість всіх товарів: ${priceSum}
-Вартість всіх товарів з округленням ${priceSumFloor}
-Вартість всіх товарів округлена до сотень ${hundredsSum}
-Булеве значення чи парне ${booleanSumFloor}
-Сумма решти при оплаті ${pay}: ${surrender}
-Cереднє значення цін: ${middlePrice}
-Ваша знижка ${discount}% Сумма до оплати: ${sumPay}
-Чистий прибуток ${arrival};
-
+console.log(`
+  Максимальне число: ${numberMax}
+  Мінімальне число: ${numberMin}
+  Вартість всіх товарів: ${priceSum}
+  Вартість всіх товарів з округленням ${priceSumFloor}
+  Вартість всіх товарів округлена до сотень ${hundredsSum}
+  Булеве значення чи парне ${booleanSumFloor}
+  Сумма решти при оплаті ${pay}: ${surrender}
+  Cереднє значення цін: ${middlePrice}
+  Ваша знижка ${discount}% Сумма до оплати: ${sumPay}
+  Чистий прибуток ${arrival};
 `);
 
