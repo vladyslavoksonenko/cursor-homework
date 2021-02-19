@@ -33,6 +33,7 @@ const discount = Math.trunc((Math.random() * 100));
 const sumPay = Number((priceSum - ((priceSum * discount) / 100)).toFixed(2));
 const property = priceSum / 2;
 const arrival = Math.round(sumPay - property);
+
 console.log(`
   Максимальне число: ${numberMax}
   Мінімальне число: ${numberMin}
