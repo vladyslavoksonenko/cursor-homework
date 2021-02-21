@@ -14,11 +14,11 @@ isPairedNum = confirm('Пропускати парні числа?');
 
 for (n; n <= m; n++) {
   if (isPairedNum) {
-    result += n;
-  } else {   
     if (n % 2 != 0) {
       result += n;
     }
+  } else {   
+    result += n;
   }
 }
 
