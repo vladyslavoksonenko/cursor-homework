@@ -1,6 +1,7 @@
-//отримує будь-яке число та виводить найбільшу цифру в цьому числі НЕЗАКІНЧЕНО
+// 1. Функція отримує будь-яке число та виводить найбільшу цифру в цьому числі НЕЗАКІНЧЕНО
 
 const getMaxDigit = (number) => {
+	number = number.toString();
 	let maxnum = 0;
 	for (let i = 0; i <= number.length; i++) {  
     if (+number[i] > +maxnum) {
@@ -11,7 +12,7 @@ const getMaxDigit = (number) => {
 }
 console.log(getMaxDigit(23423451345));
 
-// визначає ступінь числа +
+// 2. функція визначає ступінь числа +
 
 const getDegreeNum = (num, degree) => {
 	if (isNaN(num, degree)) {
@@ -27,7 +28,7 @@ const getDegreeNum = (num, degree) => {
 
 console.log(getDegreeNum(2, 2));
 
-// форматує ім'я, роблячи першу букву великою
+// 3. функція форматує ім'я, роблячи першу букву великою
 
 const getName = (name) => {
 	let resultName = ``;
@@ -41,9 +42,9 @@ const getName = (name) => {
 	return resultName;
 }
 
+console.log(getName(`vLAD`));
 // 4. Вираховує суму, що залишається після оплати податку від зарабітньої плати
 
-console.log(getName(`vLAD`));
 
 
 const getNatSalary = () => {
@@ -89,7 +90,7 @@ const getRandomPassword = (numOfCharacts = 8) => {
 	for (let i = 0; i < numOfCharacts; i++) {
 		result += Math.round(Math.random() * 9).toString();
 	}
-	return  result;
+	return result;
 }
 
 console.log(getRandomPassword(12));
@@ -106,15 +107,23 @@ const deleteLetters = (charDelete, string) => {
 
 console.log(deleteLetters("а", "мамамамамамакуперкууцвса"));
 
-// 10. функція, яка перевіряє, чи є слово паліндромом НЕ ЗАКІНЧЕНО
+// 10. функція, яка перевіряє, чи є слово паліндромом
 
 const isPalyndrom = (string) => {
-	let check = "";
-	for (let i = string.length - 1; i >= 0; i--) {
-		check += string[i];
+  let stringNoSpace = "";
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] === " ") {
+      continue;
+    } else {
+      stringNoSpace += string[i];
+    }
+  }
+	let StringCheck = "";
+	for (let i = stringNoSpace.length - 1; i >= 0; i--) {
+		StringCheck += stringNoSpace[i];
 	}
-	console.log(check);
-	if (string === check) {
+	console.log(StringCheck);
+	if (stringNoSpace.toLowerCase() === StringCheck.toLowerCase()) {
 		return true;
 	} else {
 		return false;
@@ -123,4 +132,61 @@ const isPalyndrom = (string) => {
 
 console.log(isPalyndrom('а роза упала на лапу Азора'));
 
-// 11. 
+// 11. функція, яка видалить з речення букви, які зустрічаються більше 1 разу НЕЗАКІНЧЕНО.
+
+const deleteDuplicateLetter = (string) => {
+  let result = "";
+  for (let i = 0; i < string.length; i++) {
+    for (let j = 0; j < string.length; j++) {
+      console.log(string[j]);
+      if (string[i] === string[j] && i !== j) {
+        continue;
+      } else {
+        result += string[i];
+      }
+    }
+  }
+  return result;
+}
+console.log(deleteDuplicateLetter("Бісквіт був дуже ніжним"));
+
+
+document.writeln(`
+  <h3>Функція №1: НЕЗАКІНЧЕНО</h3>
+  <p>Створити функцію getMaxDigit(number) – яка отримує будь-яке число та виводить найбільшу цифру в цьому числі.
+  Приклади: 1236 -> 6, 987 -> 9, 385 -> 8</p>
+  ${getMaxDigit(23423451345)}
+  <h3>Функція №2:</h3>
+  <p>Створити функцію, яка визначає ступінь числа. Не використовуючи Math.pow та **. Використовуйте цикл</p>
+  ${getDegreeNum(2, 2)}
+  <h3>Функція №3:</h3>
+  <p>Створити функцію, яка форматує ім'я, роблячи першу букву великою. ("влад" -> "Влад", "вЛАД" -> "Влад" і так далі);</p>
+  ${getName(`vLAD`)}
+  <h3>Функція №4: НЕЗАКІНЧЕНО</h3>
+  <p>Створити функцію, яка вираховує суму, що залишається після оплати податку від зарабітньої плати. (Податок = 18% + 1.5% -> 19.5%). Приклад: 1000 -> 805</p>
+  ${getName(`vLAD`)}
+  <h3>Функція №5:</h3>
+  <p>Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M. Приклад: getRandomNumber(1, 10) -> 5</p>
+  ${getRandomNumber(1, 3)}
+  <h3>Функція №6:</h3>
+  <p>Створити функцію, яка рахує скільки разів певна буква повторюється в слові. Приклад: countLetter("а", "Асталавіста") -> 4</p>
+  ${countLetter("А", 'Амстердама')}
+  <h3>Функція №7:</h3>
+  <p>Створіть функцію, яка конвертує долари в гривні та навпаки в залежності від наявності символа $ або UAH в рядку. 
+  Приклад: convertCurrency("100$") -> 2500 грн. або convertCurrency("2500UAH") -> 100$
+  Врахуйте, інші валюти не конвертуються, потрібно виводити помилку, і також регістр uah не має значення.</p>
+  ${convertCurrency("29uah")}
+  <h3>Функція №8:</h3>
+  <p>Створіть функцію генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
+  Приклад: getRandomPassword(4) -> 1875, getRandomPassword() -> 87240124</p>
+  ${getRandomPassword(12)}
+  <h3>Функція №9:</h3>
+  <p>Створіть функцію, яка видаляє всі букви з речення. Приклад: deleteLetters('a', "blablabla") -> "blblbl"</p>
+  ${deleteLetters("а", "малина")}
+  <h3>Функція №10:</h3>
+  <p>Створіть функцію, яка перевіряє, чи є слово паліндромом. Приклад: isPalyndrom("мадам") -> true, isPalyndrom("кокос") -> false, isPalyndrom("Я несу гусеня") -> true</p>
+  ${isPalyndrom('а роза упала на лапу Азора')}
+  <h3>Функція №11: НЕЗАКІНЧЕНО</h3>
+  <p>Створіть функцію, яка видалить з речення букви, які зустрічаються більше 1 разу. Приклад: deleteDuplicateLetter("Бісквіт був дуже ніжним") -> "сктдеим"</p>
+  ${deleteLetters("а", "малина")}
+`)
