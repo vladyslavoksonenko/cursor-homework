@@ -1,25 +1,22 @@
-let n;
-let m;
-let isPairedNum;
+let firstNum = null; 
+let lastNum = null;
 let result = 0;
 
 do {
-  n = Math.trunc(prompt(`Введіть число N`));
-} while (isNaN(n));
+  firstNum = Math.trunc(prompt(`Введіть число N`));
+} while (isNaN(firstNum));  
 do {
-  m = Math.trunc(prompt(`Введіть число M`));
-} while (isNaN(m));
+  lastNum = Math.trunc(prompt(`Введіть число M`));
+} while (isNaN(lastNum));
 
-isPairedNum = confirm('Пропускати парні числа?');
+const isPairedNum = confirm('Пропускати парні числа?');
 
-for (n; n <= m; n++) {
-  if (isPairedNum) {
-    if (n % 2 != 0) {
-      result += n;
-    }
+for (let i = firstNum; i <= lastNum; i++) {
+  if (isPairedNum && i % 2 === 0) {
+    continue;
   } else {   
-    result += n;
+    result += i;
   }
 }
 
-console.log(result);
+alert(result);
