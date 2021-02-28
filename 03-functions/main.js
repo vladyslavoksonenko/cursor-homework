@@ -1,4 +1,4 @@
-// 1. Функція отримує будь-яке число та виводить найбільшу цифру в цьому числі НЕЗАКІНЧЕНО
+// 1. Функція отримує будь-яке число та виводить найбільшу цифру в цьому числі
 
 const getMaxDigit = (number) => {
 	number = number.toString();
@@ -10,7 +10,7 @@ const getMaxDigit = (number) => {
   }
   return maxnum;
 }
-console.log(getMaxDigit(23423451345));
+console.log(getMaxDigit(23423987654449));
 
 // 2. функція визначає ступінь числа +
 
@@ -47,11 +47,17 @@ console.log(getName(`vLAD`));
 
 
 
-const getNatSalary = () => {
-	const tax = `18%`;
+const getNatSalary = (taxSocial, taxProfit, salary) => {
+	const taxSum = parseFloat(taxProfit) + parseFloat(taxSocial);
+  const taxResult = salary * taxSum / 100;
+  const result = salary - taxResult;
+  return result;
+
 }
 
-// 5. повертає випадкове ціле число в діапазоні від N до M; test
+console.log()
+
+// 5. повертає випадкове ціле число в діапазоні від N до M;x
 
 const getRandomNumber = (numMin, numMax) =>  Math.round(Math.random() * (numMax - numMin) + numMin);
 
@@ -135,14 +141,14 @@ console.log(isPalyndrom('а роза упала на лапу Азора'));
 // 11. функція, яка видалить з речення букви, які зустрічаються більше 1 разу НЕЗАКІНЧЕНО.
 
 const deleteDuplicateLetter = (string) => {
+  const stringLoverCase = string.toLowerCase();
   let result = "";
-  for (let i = 0; i < string.length; i++) {
-    for (let j = 0; j < string.length; j++) {
-      console.log(string[j]);
-      if (string[i] === string[j] && i !== j) {
-        continue;
+  for (let i = 0; i < stringLoverCase.length; i++) {
+    for (let j = 0; j < stringLoverCase.length; j++) {
+      if (stringLoverCase[i] !== stringLoverCase[j] && i === j) {
+        result += stringLoverCase[i];
       } else {
-        result += string[i];
+       
       }
     }
   }
@@ -152,19 +158,19 @@ console.log(deleteDuplicateLetter("Бісквіт був дуже ніжним")
 
 
 document.writeln(`
-  <h3>Функція №1: НЕЗАКІНЧЕНО</h3>
+  <h3>Функція №1:</h3>
   <p>Створити функцію getMaxDigit(number) – яка отримує будь-яке число та виводить найбільшу цифру в цьому числі.
   Приклади: 1236 -> 6, 987 -> 9, 385 -> 8</p>
-  ${getMaxDigit(23423451345)}
+  ${getMaxDigit(23423987654449)}
   <h3>Функція №2:</h3>
   <p>Створити функцію, яка визначає ступінь числа. Не використовуючи Math.pow та **. Використовуйте цикл</p>
   ${getDegreeNum(2, 2)}
   <h3>Функція №3:</h3>
   <p>Створити функцію, яка форматує ім'я, роблячи першу букву великою. ("влад" -> "Влад", "вЛАД" -> "Влад" і так далі);</p>
   ${getName(`vLAD`)}
-  <h3>Функція №4: НЕЗАКІНЧЕНО</h3>
+  <h3>Функція №4:</h3>
   <p>Створити функцію, яка вираховує суму, що залишається після оплати податку від зарабітньої плати. (Податок = 18% + 1.5% -> 19.5%). Приклад: 1000 -> 805</p>
-  ${getName(`vLAD`)}
+  ${getNatSalary("18%", "1.5%", "1000")}
   <h3>Функція №5:</h3>
   <p>Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M. Приклад: getRandomNumber(1, 10) -> 5</p>
   ${getRandomNumber(1, 3)}
@@ -188,5 +194,5 @@ document.writeln(`
   ${isPalyndrom('а роза упала на лапу Азора')}
   <h3>Функція №11: НЕЗАКІНЧЕНО</h3>
   <p>Створіть функцію, яка видалить з речення букви, які зустрічаються більше 1 разу. Приклад: deleteDuplicateLetter("Бісквіт був дуже ніжним") -> "сктдеим"</p>
-  ${deleteLetters("а", "малина")}
+  ${deleteDuplicateLetter("Бісквіт був дуже ніжним")}
 `)
