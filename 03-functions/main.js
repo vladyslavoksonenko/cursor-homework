@@ -68,7 +68,7 @@ const countLetter = (char, str) => {
 const convertCurrency = (moneyToConvert) => {
 	if (moneyToConvert.indexOf('$') > 0) {
 		return (parseInt(moneyToConvert) * 28).toFixed(2) + "UAH";
-	} else if (moneyToConvert.indexOf(('UAH'.toUpperCase())) > 0) {
+	} else if (moneyToConvert.toUpperCase().indexOf(('UAH')) > 0) {
 		return (parseInt(moneyToConvert) / 28).toFixed(2) + "$";
 	} else {
 		return "Невідома валюта"
