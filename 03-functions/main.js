@@ -10,7 +10,6 @@ const getMaxDigit = (number) => {
   }
   return maxnum;
 }
-console.log(getMaxDigit(23423987654449));
 
 // 2. функція визначає ступінь числа +
 
@@ -26,8 +25,6 @@ const getDegreeNum = (num, degree) => {
 	return resault;
 }
 
-console.log(getDegreeNum(2, 2));
-
 // 3. функція форматує ім'я, роблячи першу букву великою
 
 const getName = (name) => {
@@ -42,10 +39,7 @@ const getName = (name) => {
 	return resultName;
 }
 
-console.log(getName(`vLAD`));
 // 4. Вираховує суму, що залишається після оплати податку від зарабітньої плати
-
-
 
 const getNatSalary = (taxSocial, taxProfit, salary) => {
 	const taxSum = parseFloat(taxProfit) + parseFloat(taxSocial);
@@ -55,13 +49,9 @@ const getNatSalary = (taxSocial, taxProfit, salary) => {
 
 }
 
-console.log()
-
 // 5. повертає випадкове ціле число в діапазоні від N до M;x
 
 const getRandomNumber = (numMin, numMax) =>  Math.round(Math.random() * (numMax - numMin) + numMin);
-
-console.log(getRandomNumber(1, 3));
 
 // 6. Функція рахує скільки разів певна буква повторюється в слові
 
@@ -72,8 +62,6 @@ const countLetter = (char, str) => {
 	}
 	return count;
 }
-
-console.log(countLetter("А", 'Амстердама'));
 
 // 7.  конвертує долари в гривні та навпаки в залежності від наявності символа $ або UAH в рядку
 
@@ -87,8 +75,6 @@ const convertCurrency = (moneyToConvert) => {
 	};
 };
 
-console.log(convertCurrency("29uah"));
-
 // 8. генерації випадкового паролю (тільки числа)
 
 const getRandomPassword = (numOfCharacts = 8) => {
@@ -98,8 +84,6 @@ const getRandomPassword = (numOfCharacts = 8) => {
 	}
 	return result;
 }
-
-console.log(getRandomPassword(12));
 
 // 9. функція, яка видаляє всі букви з речення
 
@@ -111,7 +95,6 @@ const deleteLetters = (charDelete, string) => {
 	return result;
 }
 
-console.log(deleteLetters("а", "мамамамамамакуперкууцвса"));
 
 // 10. функція, яка перевіряє, чи є слово паліндромом
 
@@ -128,7 +111,6 @@ const isPalyndrom = (string) => {
 	for (let i = stringNoSpace.length - 1; i >= 0; i--) {
 		StringCheck += stringNoSpace[i];
 	}
-	console.log(StringCheck);
 	if (stringNoSpace.toLowerCase() === StringCheck.toLowerCase()) {
 		return true;
 	} else {
@@ -136,26 +118,24 @@ const isPalyndrom = (string) => {
 	}
 }
 
-console.log(isPalyndrom('а роза упала на лапу Азора'));
-
-// 11. функція, яка видалить з речення букви, які зустрічаються більше 1 разу НЕЗАКІНЧЕНО.
+// 11. функція, яка видалить з речення букви, які зустрічаються більше 1 разу .
 
 const deleteDuplicateLetter = (string) => {
   const stringLoverCase = string.toLowerCase();
   let result = "";
   for (let i = 0; i < stringLoverCase.length; i++) {
+    let count = 0;
     for (let j = 0; j < stringLoverCase.length; j++) {
-      if (stringLoverCase[i] !== stringLoverCase[j] && i === j) {
-        result += stringLoverCase[i];
-      } else {
-       
+      if (stringLoverCase[i] === stringLoverCase[j] && i !== j) {
+        count++;
       }
+    }
+    if (count < 1) {
+      result += stringLoverCase[i];
     }
   }
   return result;
 }
-console.log(deleteDuplicateLetter("Бісквіт був дуже ніжним"));
-
 
 document.writeln(`
   <h3>Функція №1:</h3>
@@ -192,7 +172,7 @@ document.writeln(`
   <h3>Функція №10:</h3>
   <p>Створіть функцію, яка перевіряє, чи є слово паліндромом. Приклад: isPalyndrom("мадам") -> true, isPalyndrom("кокос") -> false, isPalyndrom("Я несу гусеня") -> true</p>
   ${isPalyndrom('а роза упала на лапу Азора')}
-  <h3>Функція №11: НЕЗАКІНЧЕНО</h3>
+  <h3>Функція №11:</h3>
   <p>Створіть функцію, яка видалить з речення букви, які зустрічаються більше 1 разу. Приклад: deleteDuplicateLetter("Бісквіт був дуже ніжним") -> "сктдеим"</p>
   ${deleteDuplicateLetter("Бісквіт був дуже ніжним")}
 `)
