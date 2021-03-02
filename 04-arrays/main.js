@@ -37,20 +37,24 @@ function getTaskAndPair(pairs, themes) {
 } 
 
 function getMarks(students, marks) {
+  let studentAndMark = [];
   const studentsAndMarks = [];
 
   for (const i in students) {
-    studentsAndMarks.push(students[i], marks[i]);
+    let studentAndMark = [];
+    studentAndMark.push(students[i], marks[i]);
+    studentsAndMarks.push(studentAndMark);
   }
   return studentsAndMarks;
 }
 
 function getRandomMark(taskAndPair) {
-  for (const i in taskAndPair) {
+  const taskAndPairMark = taskAndPair;
+  for (const i in taskAndPairMark) {
     let randomMark = Math.round((Math.random() * 4) + 1);
-    taskAndPair[i].push(randomMark);
+    taskAndPairMark[i].push(randomMark);
   }
-  return taskAndPair;
+  return taskAndPairMark;
 }
 
 
@@ -65,3 +69,4 @@ console.log(pairs)
 console.log(taskAndPair);
 console.log(marksAndStudents);
 console.log(randomMark);
+
