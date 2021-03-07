@@ -1,14 +1,14 @@
 // 1. Функція отримує будь-яке число та виводить найбільшу цифру в цьому числі
 
 const getMaxDigit = (number) => {
-	number = number.toString();
-	let maxnum = 0;
-	for (let i = 0; i <= number.length; i++) {  
-    if (+number[i] > +maxnum) {
-      maxnum = number[i];
-    }
-  }
-  return maxnum;
+	let numberStr = number.toString();
+	let numMax = 0;
+	for (let i = 0; i <= numberStr.length; i++) {  
+		if (+numberStr[i] > numMax) {
+			numMax = numberStr[i];
+		}
+	}
+	return numMax;
 }
 
 // 2. функція визначає ступінь числа +
@@ -29,13 +29,8 @@ const getDegreeNum = (num, degree) => {
 
 const getName = (name) => {
 	let resultName = ``;
-	for (let i = 0; i < name.length; i++) {
-		if (i === 0) {
-		 resultName += name[i].toUpperCase();
-		} else {
-			resultName += name[i].toLowerCase();
-		}
-	}
+	resultName += name.slice(0, 1).toUpperCase();
+	resultName += name.slice(1, name.length).toLowerCase();
 	return resultName;
 }
 
@@ -43,22 +38,24 @@ const getName = (name) => {
 
 const getNatSalary = (taxSocial, taxProfit, salary) => {
 	const taxSum = parseFloat(taxProfit) + parseFloat(taxSocial);
-  const taxResult = salary * taxSum / 100;
-  const result = salary - taxResult;
-  return result;
-
+	const taxResult = salary * taxSum / 100;
+	const result = salary - taxResult;
+	return result;
 }
 
 // 5. повертає випадкове ціле число в діапазоні від N до M;x
 
-const getRandomNumber = (numMin, numMax) =>  Math.round(Math.random() * (numMax - numMin) + numMin);
+const getRandomNumber = (numMin, numMax) =>  
+	Math.round(Math.random() * (numMax - numMin) + numMin);
 
 // 6. Функція рахує скільки разів певна буква повторюється в слові
 
 const countLetter = (char, str) => {
 	let count = 0;
 	for (let i = 0; i < str.length; i++) {
-		(str[i].toLowerCase() == char.toLowerCase()) ? count++ : false;
+		if (str[i].toLowerCase() === char.toLowerCase()) {
+			count++
+		}
 	}
 	return count;
 }
@@ -67,9 +64,9 @@ const countLetter = (char, str) => {
 
 const convertCurrency = (moneyToConvert) => {
 	if (moneyToConvert.indexOf('$') > 0) {
-		return (parseInt(moneyToConvert) * 28).toFixed(2) + "UAH";
+		return (parseFloat(moneyToConvert) * 28).toFixed(2) + "UAH";
 	} else if (moneyToConvert.toUpperCase().indexOf(('UAH')) > 0) {
-		return (parseInt(moneyToConvert) / 28).toFixed(2) + "$";
+		return (parseFloat(moneyToConvert) / 28).toFixed(2) + "$";
 	} else {
 		return "Невідома валюта"
 	};
@@ -80,7 +77,7 @@ const convertCurrency = (moneyToConvert) => {
 const getRandomPassword = (numOfCharacts = 8) => {
 	let result = "";
 	for (let i = 0; i < numOfCharacts; i++) {
-		result += Math.round(Math.random() * 9).toString();
+		result += Math.round(Math.random() * 9);
 	}
 	return result;
 }
@@ -99,19 +96,19 @@ const deleteLetters = (charDelete, string) => {
 // 10. функція, яка перевіряє, чи є слово паліндромом
 
 const isPalyndrom = (string) => {
-  let stringNoSpace = "";
-  for (let i = 0; i < string.length; i++) {
-    if (string[i] === " ") {
-      continue;
-    } else {
-      stringNoSpace += string[i];
-    }
-  }
-	let StringCheck = "";
-	for (let i = stringNoSpace.length - 1; i >= 0; i--) {
-		StringCheck += stringNoSpace[i];
+	let stringNoSpace = "";
+	for (let i = 0; i < string.length; i++) {
+		if (string[i] === " ") {
+			continue;
+		} else {
+			stringNoSpace += string[i];
+		}
 	}
-	if (stringNoSpace.toLowerCase() === StringCheck.toLowerCase()) {
+	let stringCheck = "";
+	for (let i = stringNoSpace.length - 1; i >= 0; i--) {
+		stringCheck += stringNoSpace[i];
+	}
+	if (stringNoSpace.toLowerCase() === stringCheck.toLowerCase()) {
 		return true;
 	} else {
 		return false;
@@ -121,58 +118,58 @@ const isPalyndrom = (string) => {
 // 11. функція, яка видалить з речення букви, які зустрічаються більше 1 разу .
 
 const deleteDuplicateLetter = (string) => {
-  const stringLoverCase = string.toLowerCase();
-  let result = "";
-  for (let i = 0; i < stringLoverCase.length; i++) {
-    let count = 0;
-    for (let j = 0; j < stringLoverCase.length; j++) {
-      if (stringLoverCase[i] === stringLoverCase[j] && i !== j) {
-        count++;
-      }
-    }
-    if (count < 1) {
-      result += stringLoverCase[i];
-    }
-  }
-  return result;
+	const stringLoverCase = string.toLowerCase();
+	let result = "";
+	for (let i = 0; i < stringLoverCase.length; i++) {
+		let count = 0;
+		for (let j = 0; j < stringLoverCase.length; j++) {
+			if (stringLoverCase[i] === stringLoverCase[j] && i !== j) {
+				count++;
+			}
+		}
+		if (count < 1) {
+			result += stringLoverCase[i];
+		}
+	}
+	return result;
 }
 
 document.writeln(`
-  <h3>Функція №1:</h3>
-  <p>Створити функцію getMaxDigit(number) – яка отримує будь-яке число та виводить найбільшу цифру в цьому числі.
-  Приклади: 1236 -> 6, 987 -> 9, 385 -> 8</p>
-  ${getMaxDigit(23423987654449)}
-  <h3>Функція №2:</h3>
-  <p>Створити функцію, яка визначає ступінь числа. Не використовуючи Math.pow та **. Використовуйте цикл</p>
-  ${getDegreeNum(2, 2)}
-  <h3>Функція №3:</h3>
-  <p>Створити функцію, яка форматує ім'я, роблячи першу букву великою. ("влад" -> "Влад", "вЛАД" -> "Влад" і так далі);</p>
-  ${getName(`vLAD`)}
-  <h3>Функція №4:</h3>
-  <p>Створити функцію, яка вираховує суму, що залишається після оплати податку від зарабітньої плати. (Податок = 18% + 1.5% -> 19.5%). Приклад: 1000 -> 805</p>
-  ${getNatSalary("18%", "1.5%", "1000")}
-  <h3>Функція №5:</h3>
-  <p>Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M. Приклад: getRandomNumber(1, 10) -> 5</p>
-  ${getRandomNumber(1, 3)}
-  <h3>Функція №6:</h3>
-  <p>Створити функцію, яка рахує скільки разів певна буква повторюється в слові. Приклад: countLetter("а", "Асталавіста") -> 4</p>
-  ${countLetter("А", 'Амстердама')}
-  <h3>Функція №7:</h3>
-  <p>Створіть функцію, яка конвертує долари в гривні та навпаки в залежності від наявності символа $ або UAH в рядку. 
-  Приклад: convertCurrency("100$") -> 2500 грн. або convertCurrency("2500UAH") -> 100$
-  Врахуйте, інші валюти не конвертуються, потрібно виводити помилку, і також регістр uah не має значення.</p>
-  ${convertCurrency("29uah")}
-  <h3>Функція №8:</h3>
-  <p>Створіть функцію генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
-  Приклад: getRandomPassword(4) -> 1875, getRandomPassword() -> 87240124</p>
-  ${getRandomPassword(12)}
-  <h3>Функція №9:</h3>
-  <p>Створіть функцію, яка видаляє всі букви з речення. Приклад: deleteLetters('a', "blablabla") -> "blblbl"</p>
-  ${deleteLetters("а", "малина")}
-  <h3>Функція №10:</h3>
-  <p>Створіть функцію, яка перевіряє, чи є слово паліндромом. Приклад: isPalyndrom("мадам") -> true, isPalyndrom("кокос") -> false, isPalyndrom("Я несу гусеня") -> true</p>
-  ${isPalyndrom('а роза упала на лапу Азора')}
-  <h3>Функція №11:</h3>
-  <p>Створіть функцію, яка видалить з речення букви, які зустрічаються більше 1 разу. Приклад: deleteDuplicateLetter("Бісквіт був дуже ніжним") -> "сктдеим"</p>
-  ${deleteDuplicateLetter("Бісквіт був дуже ніжним")}
+	<h3>Функція №1:</h3>
+	<p>Створити функцію getMaxDigit(number) – яка отримує будь-яке число та виводить найбільшу цифру в цьому числі.
+	Приклади: 1236 -> 6, 987 -> 9, 385 -> 8</p>
+	${getMaxDigit(23423987654449)}
+	<h3>Функція №2:</h3>
+	<p>Створити функцію, яка визначає ступінь числа. Не використовуючи Math.pow та **. Використовуйте цикл</p>
+	${getDegreeNum(2, 2)}
+	<h3>Функція №3:</h3>
+	<p>Створити функцію, яка форматує ім'я, роблячи першу букву великою. ("влад" -> "Влад", "вЛАД" -> "Влад" і так далі);</p>
+	${getName(`vLAD`)}
+	<h3>Функція №4:</h3>
+	<p>Створити функцію, яка вираховує суму, що залишається після оплати податку від зарабітньої плати. (Податок = 18% + 1.5% -> 19.5%). Приклад: 1000 -> 805</p>
+	${getNatSalary("18%", "1.5%", "1000")}
+	<h3>Функція №5:</h3>
+	<p>Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M. Приклад: getRandomNumber(1, 10) -> 5</p>
+	${getRandomNumber(1, 3)}
+	<h3>Функція №6:</h3>
+	<p>Створити функцію, яка рахує скільки разів певна буква повторюється в слові. Приклад: countLetter("а", "Асталавіста") -> 4</p>
+	${countLetter("А", 'Амстердама')}
+	<h3>Функція №7:</h3>
+	<p>Створіть функцію, яка конвертує долари в гривні та навпаки в залежності від наявності символа $ або UAH в рядку. 
+	Приклад: convertCurrency("100$") -> 2500 грн. або convertCurrency("2500UAH") -> 100$
+	Врахуйте, інші валюти не конвертуються, потрібно виводити помилку, і також регістр uah не має значення.</p>
+	${convertCurrency("29uah")}
+	<h3>Функція №8:</h3>
+	<p>Створіть функцію генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
+	Приклад: getRandomPassword(4) -> 1875, getRandomPassword() -> 87240124</p>
+	${getRandomPassword(12)}
+	<h3>Функція №9:</h3>
+	<p>Створіть функцію, яка видаляє всі букви з речення. Приклад: deleteLetters('a', "blablabla") -> "blblbl"</p>
+	${deleteLetters("а", "малина")}
+	<h3>Функція №10:</h3>
+	<p>Створіть функцію, яка перевіряє, чи є слово паліндромом. Приклад: isPalyndrom("мадам") -> true, isPalyndrom("кокос") -> false, isPalyndrom("Я несу гусеня") -> true</p>
+	${isPalyndrom('а роза упала на лапу Азора')}
+	<h3>Функція №11:</h3>
+	<p>Створіть функцію, яка видалить з речення букви, які зустрічаються більше 1 разу. Приклад: deleteDuplicateLetter("Бісквіт був дуже ніжним") -> "сктдеим"</p>
+	${deleteDuplicateLetter("Бісквіт був дуже ніжним")}
 `)
