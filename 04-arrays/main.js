@@ -3,17 +3,16 @@ const students = ["Олександр", "Ігор", "Олена", "Іра", "О�
 const themes = ["Диференційне рівняння", "Теорія автоматів", "Алгоритми і структури даних"];
 const marks = [4, 5, 5, 3, 4, 5];
 
-function getPairs(arr) {
+function getPairs(students) {
 	const pairs = [];
-	let studentsGirl = [];
-	let studentsBoy = [];
+	const studentsGirl = [];
+	const studentsBoy = [];
 	
-	for (let i = 0; i < arr.length; i++) {
-		const numberLastChar = arr[i].length - 1;
-		if (arr[i][numberLastChar] === "а") {
-			studentsGirl.push(arr[i]);
+	for (let i = 0; i < students.length; i++) {;
+		if (students[i].endsWith("а")) {
+			studentsGirl.push(students[i]);
 		} else {
-			studentsBoy.push(arr[i]);
+			studentsBoy.push(students[i]);
 		}
 	}
 	for (let i = 0; i < studentsGirl.length; i++) {
@@ -24,34 +23,28 @@ function getPairs(arr) {
 }
 
 function getTaskAndPair(pairs, themes) {
-	let tasksAndPairs = []; // внешний массив
+	const tasksAndPairs = []; // внешний массив
 	let stringPair = '';
-
-	for (const i in themes) {
-		let taskAndPair = [];
+	for (let i = 0; i < themes.length; i++) {
 		stringPair = pairs[i].join(" і ");
-		taskAndPair.push(stringPair, themes[i]);   
-		tasksAndPairs.push(taskAndPair);  
+		tasksAndPairs.push([stringPair, themes[i]]);  
 	} 
 	return tasksAndPairs;
 } 
 
 function getMarks(students, marks) {
-	let studentAndMark = [];
 	const studentsAndMarks = [];
-
-	for (const i in students) {
-		let studentAndMark = [];
-		studentAndMark.push(students[i], marks[i]);
-		studentsAndMarks.push(studentAndMark);
+	for (let i = 0; i < students.length; i++) {
+		studentsAndMarks.push([students[i], marks[i]]);
 	}
 	return studentsAndMarks;
 }
 
-function getRandomMark(taskAndPair) {
-	const taskAndPairMark = taskAndPair.slice();
-	for (const i in taskAndPairMark) {
-		let randomMark = Math.round((Math.random() * 4) + 1);
+function getPairAndRandomMark(taskAndPair) {
+	const taskAndPairMark = [];
+	for (let i = 0; i < taskAndPair.length; i++) {
+		const randomMark = Math.round((Math.random() * 4) + 1);
+		taskAndPairMark.push(taskAndPair[i].slice());
 		taskAndPairMark[i].push(randomMark);
 	}
 	return taskAndPairMark;
@@ -63,7 +56,7 @@ function getRandomMark(taskAndPair) {
 const pairs = getPairs(students);
 const taskAndPair = getTaskAndPair(pairs, themes);
 const marksAndStudents = getMarks(students, marks);
-const randomMark = getRandomMark(taskAndPair);
+const randomMark = getPairAndRandomMark(taskAndPair);
 
 console.log(pairs)
 console.log(taskAndPair);
