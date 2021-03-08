@@ -1,7 +1,7 @@
 // 1. Функція отримує будь-яке число та виводить найбільшу цифру в цьому числі
 
 const getMaxDigit = (number) => {
-	let numberStr = number.toString();
+	const numberStr = number.toString();
 	let numMax = 0;
 	for (let i = 0; i <= numberStr.length; i++) {  
 		if (+numberStr[i] > numMax) {
@@ -29,8 +29,8 @@ const getDegreeNum = (num, degree) => {
 
 const getName = (name) => {
 	let resultName = ``;
-	resultName += name.slice(0, 1).toUpperCase();
-	resultName += name.slice(1, name.length).toLowerCase();
+	resultName += name[0].toUpperCase();
+	resultName += name.slice(1).toLowerCase();
 	return resultName;
 }
 
