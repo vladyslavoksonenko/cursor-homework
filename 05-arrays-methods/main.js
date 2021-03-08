@@ -4,12 +4,12 @@
 // max – максимальне значення цілого числа. +
 
 const getRandomArray = (length, min, max) => {
-	const randomArray = [];
-	for (let i = 0; i < length; i++) {
-		const randomNumber = Math.round(Math.random()*(max - min) + min);
-		randomArray.push(randomNumber);
-	}
-	return randomArray;
+  const randomArray = [];
+  for (let i = 0; i < length; i++) {
+    const randomNumber = Math.round(Math.random()*(max - min) + min);
+    randomArray.push(randomNumber);
+  }
+  return randomArray;
 }
 
 console.log(`Func 1 ${getRandomArray(10, 1, 3)}`);
