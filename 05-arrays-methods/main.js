@@ -88,7 +88,7 @@ console.log("Func 5 " + filterEvenNumbers(1, 2, 3, 4, 5, 6));
 // Приклад: countPositiveNumbers(1, -2, 3, -4, -5, 6) -> 3
 
 const countPositiveNumbers = (...numbers) => {
-  let result = Number();
+  let result = 0;
   const filterPositiveNumbers = numbers.filter((element) => element > 0) 
   filterPositiveNumbers.forEach((element) => result += element)
   return result;

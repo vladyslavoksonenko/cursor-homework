@@ -29,8 +29,7 @@ const getDegreeNum = (num, degree) => {
 
 const getName = (name) => {
   let resultName = ``;
-  resultName += name[0].toUpperCase();
-  resultName += name.slice(1).toLowerCase();
+  resultName = name[0].toUpperCase() + name.slice(1).toLowerCase();
   return resultName;
 }
 
@@ -96,23 +95,9 @@ const deleteLetters = (charDelete, string) => {
 // 10. функція, яка перевіряє, чи є слово паліндромом
 
 const isPalyndrom = (string) => {
-  let stringNoSpace = "";
-  for (let i = 0; i < string.length; i++) {
-    if (string[i] === " ") {
-      continue;
-    } else {
-      stringNoSpace += string[i];
-    }
-  }
-  let stringCheck = "";
-  for (let i = stringNoSpace.length - 1; i >= 0; i--) {
-    stringCheck += stringNoSpace[i];
-  }
-  if (stringNoSpace.toLowerCase() === stringCheck.toLowerCase()) {
-    return true;
-  } else {
-    return false;
-  }
+  let stringNoSpace = string.replaceAll(' ', '');
+  let stringCheck = stringNoSpace.split('').reverse().join('');
+  return stringNoSpace.toLowerCase() === stringCheck.toLowerCase();
 }
 
 // 11. функція, яка видалить з речення букви, які зустрічаються більше 1 разу .
@@ -121,15 +106,16 @@ const deleteDuplicateLetter = (string) => {
   const stringLoverCase = string.toLowerCase();
   let result = "";
   for (let i = 0; i < stringLoverCase.length; i++) {
-    let count = 0;
-    for (let j = 0; j < stringLoverCase.length; j++) {
-      if (stringLoverCase[i] === stringLoverCase[j] && i !== j) {
-        count++;
-      }
-    }
-    if (count < 1) {
-      result += stringLoverCase[i];
-    }
+    result = stringLoverCase.replaceAll(stringLoverCase[i], " ");
+    // let count = 0;
+    // for (let j = 0; j < stringLoverCase.length; j++) {
+    //   if (stringLoverCase[i] === stringLoverCase[j] && i !== j) {
+    //     count++;
+    //   }
+    // }
+    // if (count < 1) {
+    //   result += stringLoverCase[i];
+    // }
   }
 	return result;
 }
