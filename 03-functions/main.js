@@ -100,24 +100,22 @@ const isPalyndrom = (string) => {
   return stringNoSpace.toLowerCase() === stringCheck.toLowerCase();
 }
 
-// 11. функція, яка видалить з речення букви, які зустрічаються більше 1 разу .
+// 11. функція, яка видалить з речення букви, які зустрічаються більше 1 разу.
 
 const deleteDuplicateLetter = (string) => {
   const stringLoverCase = string.toLowerCase();
+  let arrString = stringLoverCase.split("");
+  console.log(arrString);
   let result = "";
   for (let i = 0; i < stringLoverCase.length; i++) {
-    result = stringLoverCase.replaceAll(stringLoverCase[i], " ");
-    // let count = 0;
-    // for (let j = 0; j < stringLoverCase.length; j++) {
-    //   if (stringLoverCase[i] === stringLoverCase[j] && i !== j) {
-    //     count++;
-    //   }
-    // }
-    // if (count < 1) {
-    //   result += stringLoverCase[i];
-    // }
+    arrString.push(stringLoverCase[i]);
   }
-	return result;
+  for (let i = 0; i < stringLoverCase.length; i++) {
+    if (arrString[i] === stringLoverCase[i]) {
+      result = stringLoverCase.replaceAll(arrString[i], "");
+    }
+  }
+  return result;
 }
 
 document.writeln(`
@@ -158,4 +156,4 @@ document.writeln(`
   <h3>Функція №11:</h3>
   <p>Створіть функцію, яка видалить з речення букви, які зустрічаються більше 1 разу. Приклад: deleteDuplicateLetter("Бісквіт був дуже ніжним") -> "сктдеим"</p>
   ${deleteDuplicateLetter("Бісквіт був дуже ніжним")}
-`)
+`);

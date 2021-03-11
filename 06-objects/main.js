@@ -46,11 +46,80 @@ console.log(getSubjects(students[0]));
 
 
 function getAverageMark(student) {
-  const arrRating = [];
+  let arrRating = [];
+  let sumRating = 0;
+  
     for (key in student.subjects) {
       arrRating.push(student.subjects[key]);
     }
-    console.log(arrRating.join().split(",").flat(Number()));
+    arrRating.join().split(",")
+    arrRating = arrRating.flat(Infinity);
+    arrRating.map((element) => sumRating += element)
+    const result = (sumRating / arrRating.length).toFixed(2);
+   return result;
 }
 
-getAverageMark(students[0]);
+// 3. Створіть функцію getStudentInfo(students[0]) --> { "course": 3, "name": "Tanya", "averageMark": 3.79} 
+// – яка повертає інформацію загального виду по переданому студенту (вам знадобиться функція з попереднього завдання). 
+// Повинна бути виведена інформація: курс, ім'я, середня оцінка.
+
+//console.log(getAverageMark(students[0]));
+
+function getStudentInfo(student) {
+  const result = {
+    course: student.course,
+    name: student.name,
+    averageMark: getAverageMark(student)
+  }
+  return result;
+}
+
+ console.log(getStudentInfo(students[0]));
+
+ // 4. Ствроіть функцію getStudentsNames(students) --> ["Anton", "Tanya, "Victor"] – яка повертає імена студентів у алфавітному порядку.
+
+function getStudentsNames(students) {
+  let arrNameStudents = [];
+  for (const key in students) {
+    arrNameStudents.push(students[key].name);
+  }
+  return arrNameStudents.sort();
+}
+
+console.log(getStudentsNames(students));
+
+// 5. Створіть функцію getBestStudent(students) --> "Anton" – яка повертає кращого студента зі списку по показнику середньої оцінки.
+
+function getBestStudent(students) {
+  let bestStudent = "";
+  let bestMark = 0;
+  for (const key in students) {
+    if (getAverageMark(students[key]) > bestMark) {
+      bestStudent = students[key].name;
+    } 
+  }
+  return bestStudent;
+}
+
+console.log(getBestStudent(students));
+
+
+// 6. Створіть функцію calculateWordLetters("тест") --> { "т": 2, "е": 1, "с": 1 } 
+// – яка повертає обє'кт, в якому ключі це букви у слові, а значення – кількість їх повторень.
+
+function calculateWordLetters(string) {
+  const obj = {};
+  const arrString = string.split("");
+  for (let i = 0; i < string.length; i++) {
+    let count = 1;
+    for (let j = 0; j < string.length; j++) {
+      if (string[i] === string[j] && i !== j) {
+        count++;
+      }
+    }
+    obj[string[i]] = count;
+  }
+  console.log(obj);
+}
+
+calculateWordLetters("тест");
