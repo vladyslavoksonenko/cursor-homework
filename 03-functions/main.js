@@ -105,10 +105,11 @@ const isPalyndrom = (string) => {
 const deleteDuplicateLetter = (string) => {
   const stringLoverCase = string.toLowerCase();
   let arrString = stringLoverCase.split("");
-  console.log(arrString);
   let result = "";
   for (let i = 0; i < stringLoverCase.length; i++) {
-    arrString.push(stringLoverCase[i]);
+    if (stringLoverCase[i] === arrString[i]) {
+      result = stringLoverCase.raplace
+    }
   }
   for (let i = 0; i < stringLoverCase.length; i++) {
     if (arrString[i] === stringLoverCase[i]) {

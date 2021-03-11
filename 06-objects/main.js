@@ -59,6 +59,8 @@ function getAverageMark(student) {
    return result;
 }
 
+console.log(getAverageMark(students[0]));
+
 // 3. Створіть функцію getStudentInfo(students[0]) --> { "course": 3, "name": "Tanya", "averageMark": 3.79} 
 // – яка повертає інформацію загального виду по переданому студенту (вам знадобиться функція з попереднього завдання). 
 // Повинна бути виведена інформація: курс, ім'я, середня оцінка.
@@ -110,16 +112,11 @@ console.log(getBestStudent(students));
 function calculateWordLetters(string) {
   const obj = {};
   const arrString = string.split("");
-  for (let i = 0; i < string.length; i++) {
-    let count = 1;
-    for (let j = 0; j < string.length; j++) {
-      if (string[i] === string[j] && i !== j) {
-        count++;
-      }
-    }
-    obj[string[i]] = count;
-  }
-  console.log(obj);
+   const result = arrString.reduce((prev, current) => {
+    prev[current] = (prev[current] || 0) + 1;
+    return prev;
+  }, obj);
+  return result;
 }
 
-calculateWordLetters("тест");
+console.log(calculateWordLetters("тест"));

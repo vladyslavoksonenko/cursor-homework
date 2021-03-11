@@ -1,16 +1,14 @@
-const user = {
-  name: "Sergey",
-  password: '1234'
-}
-
-const admin = {
-  name: "admin",
-  password: "dsd3r5tgsa"
-}
 
 
-function userInfo() {
-  console.log(`Name: ${user.name}, password: ${user.password}`);
-}
 
-userInfo()
+
+
+
+
+let arr = ['a', 'b', 'c', 'd', 'd', 'e', 'a'];
+
+    let uniq = arr.reduce((prev, cur) => {
+      prev[cur] = (prev[cur] || 0) + 1;
+      return prev;
+    }, {});
+    console.log('result ->', JSON.stringify(uniq));
