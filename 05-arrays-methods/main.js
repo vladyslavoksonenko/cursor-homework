@@ -14,24 +14,6 @@ const getRandomArray = (length, min, max) => {
 
 console.log(`Func 1 ${getRandomArray(10, 1, 3)}`);
 
-// 2. Створіть функцію getModa(...numbers) – яка вираховує моду всіх переданих в неї аргументів. НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ
-// Приклад: getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 2  НЕЗАКІНЧЕНО
-
-const getModa = (...numbers) => {
-  numbers = numbers.filter((element) => Number.isInteger(element));
-  numbers.sort((a, b) => a - b);
-  let sumNumbers = null;
-    //console.log(numbers);
-  numbers.forEach((element, index) => {
-    sumNumbers += element[index];
-  })
-  //const result = numbers[0] + numbers.length - 1 
-  }
-	
-  // console.log(getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
-	
-	 
-
 // 3. Створіть функцію getAverage(...numbers) – яка рахує середнє арифметичне всіх переданих в неї аргументів. НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ
 // Приклад: getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 34.4 +
 
@@ -55,14 +37,14 @@ const getMedian = (...numbers) => {
   let median = medianIndex = null; 	
 
   numbers.sort((a, b) => a - b);
-  numbers = numbers.filter((element) => Number.isInteger(element));
+  const numbersFiltered = numbers.filter((element) => Number.isInteger(element));
 
-  medianIndex = (numbers.length + 1) / 2; 
+  medianIndex = (numbersFiltered.length + 1) / 2; 
 	
-  if (numbers.length % 2 !== 0) {
-    median = numbers[medianIndex - 1]; 
+  if (numbersFiltered.length % 2 !== 0) {
+    median = numbersFiltered[medianIndex - 1]; 
   } else {
-    median = ((numbers[(medianIndex - 1) + 0.5]) + (numbers[(medianIndex - 1) - 0.5])) / 2;
+    median = ((numbersFiltered[(medianIndex - 1) + 0.5]) + (numbersFiltered[(medianIndex - 1) - 0.5])) / 2;
   }
 
   return median;
@@ -172,3 +154,18 @@ document.writeln(`
     <span style="font-weight: bold; font-size: 18px;">Result: </span>${getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)}
   </p>
 `);
+
+// 2. Створіть функцію getModa(...numbers) – яка вираховує моду всіх переданих в неї аргументів. НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ
+// Приклад: getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 2  НЕЗАКІНЧЕНО
+
+// const getModa = (...numbers) => {
+//   numbers = numbers.filter((element) => Number.isInteger(element));
+//   numbers.sort((a, b) => a - b);
+//   let sumNumbers = null;
+//   numbers.forEach((element, index) => {
+//     sumNumbers += element[index];
+//   })
+  //const result = numbers[0] + numbers.length - 1 
+//  }
+	
+  // console.log(getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));

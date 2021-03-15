@@ -106,14 +106,15 @@ const deleteDuplicateLetter = (string) => {
   const stringLoverCase = string.toLowerCase();
   let arrString = stringLoverCase.split("");
   let result = "";
-  for (let i = 0; i < stringLoverCase.length; i++) {
-    if (stringLoverCase[i] === arrString[i]) {
-      result = stringLoverCase.raplace
+  for (let i = 0; i < arrString.length; i++) {
+    let count = 0;
+    for (let j = 0; j < arrString.length; j++) {
+      if (arrString[i] === arrString[j] && i !== j) {
+        count++;
+      };
     }
-  }
-  for (let i = 0; i < stringLoverCase.length; i++) {
-    if (arrString[i] === stringLoverCase[i]) {
-      result = stringLoverCase.replaceAll(arrString[i], "");
+    if (count < 1) {
+      result += arrString[i];
     }
   }
   return result;
