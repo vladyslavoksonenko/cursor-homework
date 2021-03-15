@@ -71,8 +71,8 @@ console.log("Func 5 " + filterEvenNumbers(1, 2, 3, 4, 5, 6));
 
 const countPositiveNumbers = (...numbers) => {
   let result = 0;
-  const filterPositiveNumbers = numbers.filter((element) => element > 0) 
-  filterPositiveNumbers.forEach((element) => result += element)
+  const filterPositiveNumbers = numbers.filter((element) => element > 0); 
+  filterPositiveNumbers.forEach((element) => result += element);
   return result;
 }
 
@@ -158,14 +158,9 @@ document.writeln(`
 // 2. Створіть функцію getModa(...numbers) – яка вираховує моду всіх переданих в неї аргументів. НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ
 // Приклад: getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 2  НЕЗАКІНЧЕНО
 
-// const getModa = (...numbers) => {
-//   numbers = numbers.filter((element) => Number.isInteger(element));
-//   numbers.sort((a, b) => a - b);
-//   let sumNumbers = null;
-//   numbers.forEach((element, index) => {
-//     sumNumbers += element[index];
-//   })
-  //const result = numbers[0] + numbers.length - 1 
-//  }
+const getModa = (...numbers) => {
+  const arrNumber = [...numbers];
+  arr
+}
 	
-  // console.log(getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+console.log(getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
