@@ -4,26 +4,62 @@
 // max – максимальне значення цілого числа. +
 
 const getRandomArray = (length, min, max) => {
+
   const randomArray = [];
+
   for (let i = 0; i < length; i++) {
     const randomNumber = Math.round(Math.random()*(max - min) + min);
     randomArray.push(randomNumber);
   }
+
   return randomArray;
 }
 
 console.log(`Func 1 ${getRandomArray(10, 1, 3)}`);
 
+// 2. Створіть функцію getModa(...numbers) – яка вираховує моду всіх переданих в неї аргументів. НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ
+// Приклад: getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 2  НЕЗАКІНЧЕНО
+
+const getModa = (...numbers) => {
+
+  const arrNumbers = [...numbers];
+
+  arrNumbers.sort((a, b) => a - b);
+
+  const objValues = {};
+
+  arrNumbers.forEach(item => {
+    objValues[item] = objValues[item] + 1 || 1;
+  }, [])
+
+  let moda = [];
+  let countDigits = 1;
+
+  for (let key in objValues) {
+    if (objValues[key] > countDigits) {
+      moda = key;
+      countDigits = objValues[key]
+    } else if (objValues[key] === countDigits) {
+      moda.push(key);
+    }
+  }
+  return moda;
+}
+
+console.log('func 2 ' + getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+
 // 3. Створіть функцію getAverage(...numbers) – яка рахує середнє арифметичне всіх переданих в неї аргументів. НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ
 // Приклад: getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 34.4 +
 
 const getAverage = (...numbers) => {
+
   let sumNumber = null;
+
   numbers = numbers.filter((element) => Number.isInteger(element));
-  numbers.forEach(element => {
-    sumNumber += element;
-  });
+  sumNumber = numbers.reduce((prev, current) => (prev || 0) + current);
+
   const result = (1 / (numbers.length)) * sumNumber;
+  
   return result;
 }
 
@@ -34,9 +70,11 @@ console.log("func 3 ", getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56
 // 4. Створіть функцію getMedian(...numbers) – яка рахує медіану всіх переданих в неї аргументів. НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ 
 
 const getMedian = (...numbers) => {
+
   let median = medianIndex = null; 	
 
   numbers.sort((a, b) => a - b);
+
   const numbersFiltered = numbers.filter((element) => Number.isInteger(element));
 
   medianIndex = (numbersFiltered.length + 1) / 2; 
@@ -70,10 +108,13 @@ console.log("Func 5 " + filterEvenNumbers(1, 2, 3, 4, 5, 6));
 // Приклад: countPositiveNumbers(1, -2, 3, -4, -5, 6) -> 3
 
 const countPositiveNumbers = (...numbers) => {
+
   let result = 0;
+
   const filterPositiveNumbers = numbers.filter((element) => element > 0); 
-  filterPositiveNumbers.forEach((element) => result += element);
-  return result;
+
+  return filterPositiveNumbers.length;
+  
 }
 
 console.log("Func 6 " + countPositiveNumbers(1, -2, 3, -4, -5, 6));
@@ -88,8 +129,6 @@ const getDividedByFive = (...numbers) => {
 console.log("Func 7 " + getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 
 
-// 8.
-
 document.writeln(`
   <p>
     <span style="font-size: 18px; font-weight: bold;">1.</span> 
@@ -102,6 +141,16 @@ document.writeln(`
   </p>
   <p>
     <span style="font-weight: bold; font-size: 18px;">Result: </span>${getRandomArray(10, 1, 3)}
+  </p>
+  <p>
+    <span style="font-size: 18px; font-weight: bold;">2.</span> 
+    Створіть функцію getModa(...numbers) – яка вираховує моду всіх переданих в неї аргументів. НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ 
+  </p>
+  <p>
+    getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 2
+  </p>
+  <p>
+    <span style="font-weight: bold; font-size: 18px;">Result: </span>${getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)}
   </p>
   <p>
     <span style="font-size: 18px; font-weight: bold;">3.</span>
@@ -155,12 +204,4 @@ document.writeln(`
   </p>
 `);
 
-// 2. Створіть функцію getModa(...numbers) – яка вираховує моду всіх переданих в неї аргументів. НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ
-// Приклад: getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 2  НЕЗАКІНЧЕНО
 
-const getModa = (...numbers) => {
-  const arrNumber = [...numbers];
-  arr
-}
-	
-console.log(getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
