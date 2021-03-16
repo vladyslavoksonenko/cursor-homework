@@ -18,8 +18,6 @@ const getRandomColor = () => {
   return `rgb(${color.r},${color.g},${color.b})`;
 }
 
-
-
 const generateBlocks = () => {
 
   squares.innerHTML = "";
