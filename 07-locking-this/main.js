@@ -20,7 +20,7 @@ console.log('');
 // Функція повинна викликатись через call та працювати з даними через this
 
 function getMiddleTaxes() {
-  return this.middleSalary;
+  return this.middleSalary * this.tax;
 }
 
 console.log("func 2: ukraine " + getMiddleTaxes.call(ukraine));
