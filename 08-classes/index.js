@@ -36,7 +36,7 @@ const studentMark = new Student(
   "Оксьоненко Владимслав Віталійович", 
   "Київський національний універститет технологій та дизайну", 
   "3"
-);
+)
 
 studentMark.setMarks = 5;
 studentMark.setMarks = 4;
@@ -53,15 +53,13 @@ class BudgetStudent extends Student {
     this.getScholarship = function() {
       setInterval(() => {
         console.log("Ви отримали 1400 стипендії");
-      }, 30000);
+      }, 30000)
     }
   } 
 }
 
 const studentsVasya = new BudgetStudent(
-  "Vasya",
-  "Київ",
-  "2"
+  this.fullName  = "Vasya"
 )
 
 console.log(studentsVasya);
