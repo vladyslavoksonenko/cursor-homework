@@ -1,10 +1,13 @@
 
 class Student {
-  constructor (fullName, university, course) {
+
+  constructor (fullName, university, course, marks) {
     this.fullName = fullName;
     this.university = university;
     this.course = course;
+    this.marks = [marks];
   }
+
   getInfo() {
     return `Студент ${this.course}-го курсу, ${this.university}, ${this.fullName}`
   }
@@ -30,36 +33,56 @@ class Student {
   recover() {
     this.marks = [];
   }
+
 }
 
-const studentMark = new Student(
+class BudgetStudent extends Student {
+
+  constructor(...args) {
+    super(...args);
+    this.getScholarship();
+  } 
+
+  getScholarship() {
+
+    let sumResult = 0;
+    
+    this.marks.forEach(element =>sumResult =+ element);
+
+    const result = sumResult / this.marks.length
+
+    if (result > 4) {
+      console.log("Ви отримали 1400 стипендії");
+      setInterval(() => {
+        console.log("Ви отримали 1400 стипендії");
+      }, 30000);
+
+    } else {
+      console.log("Ви не отримали стипендію");
+    }
+  }
+
+}
+
+const studentVlad = new Student(
   "Оксьоненко Владимслав Віталійович", 
   "Київський національний універститет технологій та дизайну", 
   "3"
 )
 
-studentMark.setMarks = 5;
-studentMark.setMarks = 4;
-studentMark.setMarks = 4;
-studentMark.setMarks = 5;
-studentMark.setMarks = 5;
+studentVlad.setMarks = 5;
+studentVlad.setMarks = 4;
+studentVlad.setMarks = 4;
+studentVlad.setMarks = 5;
+studentVlad.setMarks = 5;
+
+console.log(studentVlad);
 
 
-console.log(studentMark);
+const studentsVasya = new BudgetStudent("Василь Васильович", "Kyiv", "3", 5);
 
-class BudgetStudent extends Student {
-  constructor(getScholarship) {
-    super();
-    this.getScholarship = function() {
-      setInterval(() => {
-        console.log("Ви отримали 1400 стипендії");
-      }, 30000)
-    }
-  } 
-}
-
-const studentsVasya = new BudgetStudent(
-  this.fullName  = "Vasya"
-)
+studentsVasya.setMarks = 5;
+studentsVasya.setMarks = 5;
+studentsVasya.setMarks = 5;
 
 console.log(studentsVasya);
