@@ -28,10 +28,12 @@ class Student {
 
   dismiss() {
     this.marks = null;
+    console.log(this.marks);
   }
 
   recover() {
     this.marks = [];
+    console.log(this.marks);
   }
 
 }
