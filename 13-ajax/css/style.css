@@ -1,0 +1,105 @@
+html {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+header {position: relative;}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  align-items: center;
+}
+
+.header__logo {
+  
+}
+
+.header__title {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.header__logo img {
+  width: 200px;
+}
+
+.header__films-check {
+  font-size: 24px;
+}
+
+select.select {
+  font-size: 24px;
+  background: #fff0;
+  color: #fff;
+  padding: 10px 10px;
+  border-radius: 0px;
+}
+
+
+.back-video {
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.main {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+}
+
+h2 {
+  text-align: center;
+}
+
+
+button {
+  font-size: 20px;
+  padding: 10px 30px;
+  max-width: 130px;
+  color: #fff;
+  background: #00000024;
+  border: 1px solid #fff;
+  margin: 0 7px;
+}
+
+.row {
+  margin: 15px 0;
+}
+
+span.line {
+    width: 2px;
+    background: #fff;
+}
+
+.arrow-block {
+  display: flex;
+  justify-content: center;
+}
+
+.arrow {
+    border: 1px solid #fff;
+    font-size: 26px;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px;
+    width: 74px;
+}
+
+.people-all {
+  border: 1px solid #fff;
+  padding: 10px;
+  display: flex;
+}
+
+.people__photo {
+  width: 200px;
+}
