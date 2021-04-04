@@ -20,10 +20,12 @@ let index = 1;
 peoplesButton.addEventListener("click", function () {
   peopleAll.classList.toggle("hidden-block");
   planets.classList.add("hidden-block");
+  select.classList.remove("hidden-block");
 })
 planetButton.addEventListener("click", function () {
   peopleAll.classList.add("hidden-block");
   planets.classList.toggle("hidden-block");
+  select.classList.add("hidden-block");
 })
 select.addEventListener("change", function () {
   getFilm();

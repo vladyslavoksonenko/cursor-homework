@@ -28,12 +28,10 @@ class Student {
 
   dismiss() {
     this.marks = null;
-    console.log(this.marks);
   }
 
   recover() {
     this.marks = [];
-    console.log(this.marks);
   }
 
 }
@@ -54,7 +52,9 @@ class BudgetStudent extends Student {
     const result = sumResult / this.marks.length
 
     if (result > 4) {
+
       console.log("Ви отримали 1400 стипендії");
+      
       setInterval(() => {
         console.log("Ви отримали 1400 стипендії");
       }, 30000);
@@ -81,10 +81,20 @@ studentVlad.setMarks = 5;
 console.log(studentVlad);
 
 
-const studentsVasya = new BudgetStudent("Василь Васильович", "Kyiv", "3", 5);
+const studentVasya = new BudgetStudent("Василь Васильович", "Kyiv", "3", 5);
 
-studentsVasya.setMarks = 5;
-studentsVasya.setMarks = 5;
-studentsVasya.setMarks = 5;
+studentVasya.setMarks = 5;
+studentVasya.setMarks = 5;
+studentVasya.setMarks = 5;
 
-console.log(studentsVasya);
+console.log(studentVasya);
+
+studentVlad.dismiss();
+
+console.log("studentVlad.dismiss()");
+console.log(studentVlad);
+
+studentVlad.recover();
+
+console.log("studentVlad.recover()");
+console.log(studentVlad);
