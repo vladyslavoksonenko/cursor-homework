@@ -70,15 +70,15 @@ function httpsReplace(url) {
 }
 
 function requestForServer(url) {
-
-    return fetch(httpsReplace(url))
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      return data;
-    })
-    .catch(error => console.log(error)); 
+  console.log(httpsReplace(url))
+  return fetch(httpsReplace(url))
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    return data;
+  })
+  .catch(error => console.log(error)); 
 }
 
 function generateEpisodes() {
@@ -173,6 +173,7 @@ function getPlanets(index = 1) {
     console.log(urlPlanet)
     requestForServer(urlPlanet)
     .then((data) => {
+      console.log(data);
         const namePlanet = document.createElement("div");
         namePlanet.innerHTML = `Планета: ${data.name}`;
         const photo = document.createElement("img");
