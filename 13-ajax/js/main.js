@@ -34,7 +34,7 @@ select.addEventListener("change", function () {
 });
 planetButtons[0].addEventListener("click", () => {
   index--;
-  getPlanets(index);
+    getPlanets(index);
 })
 planetButtons[1].addEventListener("click", () => {
   index++;
@@ -58,12 +58,10 @@ function init() {
 
 function httpsReplace(url) {
 
-  console.log(url);
-
   if (url[4] !== "s"){
 
-    let httpsurl = url.replace("http", "https");
-    return httpsurl;
+    let httpsUrl = url.replace("http", "https");
+    return httpsUrl;
 
   } else {
     return url;
@@ -72,8 +70,8 @@ function httpsReplace(url) {
 }
 
 function requestForServer(url) {
-  
-    return fetch(urhttpsReplace(url))
+
+    return fetch(httpsReplace(url))
     .then((response) => {
       return response.json();
     })
