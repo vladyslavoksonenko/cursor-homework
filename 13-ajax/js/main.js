@@ -56,8 +56,24 @@ function init() {
     })
 }
 
+function httpsReplace(url) {
+
+  console.log(url);
+
+  if (url[4] !== "s"){
+
+    let httpsurl = url.replace("http", "https");
+    return httpsurl;
+
+  } else {
+    return url;
+  }
+    
+}
+
 function requestForServer(url) {
-    return fetch(url)
+  
+    return fetch(urhttpsReplace(url))
     .then((response) => {
       return response.json();
     })
