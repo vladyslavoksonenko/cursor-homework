@@ -41,6 +41,7 @@ select.select {
   color: #fff;
   padding: 10px 10px;
   border-radius: 0px;
+  cursor: pointer;
 }
 
 
@@ -53,7 +54,7 @@ select.select {
 .main {
   position: relative;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
 }
 
 h2 {
@@ -64,12 +65,32 @@ h2 {
 button {
   font-size: 20px;
   padding: 10px 30px;
-  max-width: 130px;
+  min-width: 180px;
   color: #fff;
   background: #00000024;
   border: 1px solid #fff;
-  margin: 0 7px;
+  margin: auto;
+  cursor: pointer;
 }
+
+.hidden-block {
+  /* opacity: 0; */
+  z-index: -1;
+  transition: all 0.2s;
+  transform: scale(0) !important;
+  position: absolute !important;
+}
+
+button:hover {
+  background: #ffffff26;
+  transition: all 0.2s;
+}
+
+select:hover {
+  background: #ffffff26;
+  transition: all 0.2s;
+}
+
 
 .row {
   margin: 15px 0;
@@ -95,11 +116,67 @@ span.line {
 }
 
 .people-all {
-  border: 1px solid #fff;
+  border: 1px solid #9a9a9a;
   padding: 10px;
   display: flex;
+  flex-wrap: wrap;
+  background: #76767626;
+  justify-content: center;
+  transform: scale(1);
+  transition: all 1s;
+  z-index: 1;
+  position: relative;
 }
 
 .people__photo {
   width: 200px;
+  border-radius: 6px;
+  max-height: 113px;
+}
+
+.people__modal {
+  min-width: 205px;
+  min-height: 175px;
+  border: 1px solid #9a9a9a;
+  padding: 10px;
+
+}
+
+.people__gender {
+  margin: 5px 0;
+}
+
+.decoration {
+  color: #9a9a9a;
+}
+
+.planets {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons {
+  margin: 20px auto;
+}
+
+.planets-block {
+  margin: auto;
+  border: 1px solid #fff;
+  padding: 10px;
+  max-width: 400px;
+  transform: scale(1);
+  transition: all 1s;
+  z-index: 1;
+  position: relative;
+  min-height: 300px;
+}
+
+.planet-block img {
+  max-width: 364px;
+}
+
+.planet-block div {
+  margin: auto;
+  text-align: center;
+  font-size: 20px;
 }
