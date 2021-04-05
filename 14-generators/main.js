@@ -16,6 +16,10 @@ const idGenerator = createIdGenerator();
 const buttons = document.querySelectorAll("button");
 const body = document.querySelector("body");
 
+function init(fontSize) {
+  body.style.fontSize = `${fontSize}px`;
+}
+
 buttons[0].addEventListener("click", function () {
   console.log("up", fontGenerator.next("up").value);
   body.style.fontSize = `${fontGenerator.next("up").value}px`;
@@ -26,7 +30,9 @@ buttons[1].addEventListener("click", function () {
   body.style.fontSize = `${fontGenerator.next("down").value}px`;
 })
 
-function* newFontGenerator(fontSize = 14) {
+const fontSize = 14;
+
+function* newFontGenerator(fontSize) {
   while (true) {
     const res = yield fontSize;
     if (res === "up") {
@@ -40,6 +46,8 @@ function* newFontGenerator(fontSize = 14) {
   }
 }
 
-const fontGenerator = newFontGenerator();
+const fontGenerator = newFontGenerator(fontSize);
+
+init(fontSize);
 
 
