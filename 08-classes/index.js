@@ -18,7 +18,7 @@ class Student {
 
   set setMarks(mark) {
     this.marks === undefined ? this.marks = [mark] : this.marks.push(mark);
-    this.getMarks;
+    return this.getMarks;
   }
 
   getAverageMark() {
