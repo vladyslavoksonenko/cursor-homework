@@ -27,7 +27,7 @@ buttons[1].addEventListener("click", function () {
 })
 
 function* newFontGenerator(fontSize = 14) {
-  while (fontSize > 0 && fontSize < 100) {
+  while (true) {
     const res = yield fontSize;
     if (res === "up") {
       fontSize += 2;
