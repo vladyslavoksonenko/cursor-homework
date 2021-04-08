@@ -129,79 +129,79 @@ const getDividedByFive = (...numbers) => {
 console.log("Func 7 " + getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 
 
-document.writeln(`
-  <p>
-    <span style="font-size: 18px; font-weight: bold;">1.</span> 
-    Створіть функцію getRandomArray(length, min, max) – яка повертає масив випадкових цілих чисел. 
-    У функції є параметри: length - довжина масиву, min – мінімальне значення цілого числа, 
-    max – максимальне значення цілого числа.
-  </p>
-  <p>
-    getRandomArray(10, 1, 3)
-  </p>
-  <p>
-    <span style="font-weight: bold; font-size: 18px;">Result: </span>${getRandomArray(10, 1, 3)}
-  </p>
-  <p>
-    <span style="font-size: 18px; font-weight: bold;">2.</span> 
-    Створіть функцію getModa(...numbers) – яка вираховує моду всіх переданих в неї аргументів. НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ 
-  </p>
-  <p>
-    getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 2
-  </p>
-  <p>
-    <span style="font-weight: bold; font-size: 18px;">Result: </span>${getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)}
-  </p>
-  <p>
-    <span style="font-size: 18px; font-weight: bold;">3.</span>
-    Створіть функцію getAverage(...numbers) – яка рахує середнє арифметичне всіх переданих в неї аргументів. НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ
-  </p>
-  <p>
-    getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)
-  </p>
-  <p>
-    <span style="font-weight: bold; font-size: 18px;">Result: </span>${getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)}
-  </p>
-  <p>
-    <span style="font-size: 18px; font-weight: bold;">4.</span>
-    Створіть функцію getMedian(...numbers) – яка рахує медіану всіх переданих в неї аргументів. НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ 
-  </p>
-  <p>
-    getMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)
-  </p>
-  <p>
-    <span style="font-weight: bold; font-size: 18px;">Result: </span>${getMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)}
-  </p>
-  <p>
-    <span style="font-size: 18px; font-weight: bold;">5.</span>
-    Створіть функцію filterEvenNumbers(...numbers) – яка фільтрує парні числа передані як аргументи функції 
-  </p>
-  <p>
-    filterEvenNumbers(1, 2, 3, 4, 5, 6)
-  </p>
-  <p>
-    <span style="font-weight: bold; font-size: 18px;">Result: </span>${filterEvenNumbers(1, 2, 3, 4, 5, 6)}
-  </p>
-  <p>
-    <span style="font-size: 18px; font-weight: bold;">6.</span>
-    Створіть функцію countPositiveNumbers(...numbers) – яка порахує кількість чисел більших 0 
-  </p>
-  <p>
-    countPositiveNumbers(1, -2, 3, -4, -5, 6)
-  </p>
-  <p>
-    <span style="font-weight: bold; font-size: 18px;">Result: </span>${countPositiveNumbers(1, -2, 3, -4, -5, 6)}
-  </p>
-  <p>
-    <span style="font-size: 18px; font-weight: bold;">7.</span>
-    Створіть функцію getDividedByFive(...numbers) – яка відфільтрує усі елементи в масиві та залишить тільки ті, які діляться на ціло на 5
-  </p>
-  <p>
-    getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)
-  </p>
-  <p>
-    <span style="font-weight: bold; font-size: 18px;">Result: </span>${getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)}
-  </p>
-`);
+// document.writeln(`
+//   <p>
+//     <span style="font-size: 18px; font-weight: bold;">1.</span> 
+//     Створіть функцію getRandomArray(length, min, max) – яка повертає масив випадкових цілих чисел. 
+//     У функції є параметри: length - довжина масиву, min – мінімальне значення цілого числа, 
+//     max – максимальне значення цілого числа.
+//   </p>
+//   <p>
+//     getRandomArray(10, 1, 3)
+//   </p>
+//   <p>
+//     <span style="font-weight: bold; font-size: 18px;">Result: </span>${getRandomArray(10, 1, 3)}
+//   </p>
+//   <p>
+//     <span style="font-size: 18px; font-weight: bold;">2.</span> 
+//     Створіть функцію getModa(...numbers) – яка вираховує моду всіх переданих в неї аргументів. НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ 
+//   </p>
+//   <p>
+//     getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 2
+//   </p>
+//   <p>
+//     <span style="font-weight: bold; font-size: 18px;">Result: </span>${getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)}
+//   </p>
+//   <p>
+//     <span style="font-size: 18px; font-weight: bold;">3.</span>
+//     Створіть функцію getAverage(...numbers) – яка рахує середнє арифметичне всіх переданих в неї аргументів. НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ
+//   </p>
+//   <p>
+//     getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)
+//   </p>
+//   <p>
+//     <span style="font-weight: bold; font-size: 18px;">Result: </span>${getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)}
+//   </p>
+//   <p>
+//     <span style="font-size: 18px; font-weight: bold;">4.</span>
+//     Створіть функцію getMedian(...numbers) – яка рахує медіану всіх переданих в неї аргументів. НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ 
+//   </p>
+//   <p>
+//     getMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)
+//   </p>
+//   <p>
+//     <span style="font-weight: bold; font-size: 18px;">Result: </span>${getMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)}
+//   </p>
+//   <p>
+//     <span style="font-size: 18px; font-weight: bold;">5.</span>
+//     Створіть функцію filterEvenNumbers(...numbers) – яка фільтрує парні числа передані як аргументи функції 
+//   </p>
+//   <p>
+//     filterEvenNumbers(1, 2, 3, 4, 5, 6)
+//   </p>
+//   <p>
+//     <span style="font-weight: bold; font-size: 18px;">Result: </span>${filterEvenNumbers(1, 2, 3, 4, 5, 6)}
+//   </p>
+//   <p>
+//     <span style="font-size: 18px; font-weight: bold;">6.</span>
+//     Створіть функцію countPositiveNumbers(...numbers) – яка порахує кількість чисел більших 0 
+//   </p>
+//   <p>
+//     countPositiveNumbers(1, -2, 3, -4, -5, 6)
+//   </p>
+//   <p>
+//     <span style="font-weight: bold; font-size: 18px;">Result: </span>${countPositiveNumbers(1, -2, 3, -4, -5, 6)}
+//   </p>
+//   <p>
+//     <span style="font-size: 18px; font-weight: bold;">7.</span>
+//     Створіть функцію getDividedByFive(...numbers) – яка відфільтрує усі елементи в масиві та залишить тільки ті, які діляться на ціло на 5
+//   </p>
+//   <p>
+//     getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)
+//   </p>
+//   <p>
+//     <span style="font-weight: bold; font-size: 18px;">Result: </span>${getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)}
+//   </p>
+// `);
 
 

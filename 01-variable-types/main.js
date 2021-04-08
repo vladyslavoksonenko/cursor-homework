@@ -34,16 +34,19 @@ const sumPay = Number((priceSum - ((priceSum * discount) / 100)).toFixed(2));
 const property = priceSum / 2;
 const arrival = Math.round(sumPay - property);
 
-console.log(`
-  Максимальне число: ${numberMax}
-  Мінімальне число: ${numberMin}
-  Вартість всіх товарів: ${priceSum}
-  Вартість всіх товарів з округленням ${priceSumFloor}
-  Вартість всіх товарів округлена до сотень ${hundredsSum}
-  Булеве значення чи парне ${booleanSumFloor}
-  Сумма решти при оплаті ${pay}: ${surrender}
-  Cереднє значення цін: ${middlePrice}
-  Ваша знижка ${discount}% Сумма до оплати: ${sumPay}
-  Чистий прибуток ${arrival};
-`);
+export { numberMax, numberMin };
+
+// console.log(`
+//   Максимальне число: ${numberMax}
+//   Мінімальне число: ${numberMin}
+//   Вартість всіх товарів: ${priceSum}
+//   Вартість всіх товарів з округленням ${priceSumFloor}
+//   Вартість всіх товарів округлена до сотень ${hundredsSum}
+//   Булеве значення чи парне ${booleanSumFloor}
+//   Сумма решти при оплаті ${pay}: ${surrender}
+//   Cереднє значення цін: ${middlePrice}
+//   Ваша знижка ${discount}% Сумма до оплати: ${sumPay}
+//   Чистий прибуток ${arrival};
+// `);
+
 

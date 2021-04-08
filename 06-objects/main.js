@@ -32,7 +32,7 @@ const students = [{
 function getSubjects(student) {
   let listSubjects = Object.keys(student.subjects);
   
-  listSubjects.forEach((element, index) => {
+  listSubjects.map((element, index) => {
     listSubjects[index] = element[0].toUpperCase() + element.slice(1).replaceAll(/_/g, " ");
   });
   return listSubjects;
@@ -49,10 +49,12 @@ function getAverageMark(student) {
   let arrRating = [];
   let sumRating = 0;
   
-    for (key in student.subjects) {
-      arrRating.push(student.subjects[key]);
-    }
-    arrRating.join().split(",")
+    // for (key in student.subjects) {
+    //   arrRating.push(student.subjects[key]);
+    // }
+
+    arrRating = Object.values(students.subjects);
+    console.log(arrRating);
     arrRating = arrRating.flat(Infinity);
     arrRating.map((element) => sumRating += element)
     const result = (sumRating / arrRating.length).toFixed(2);
@@ -81,10 +83,13 @@ function getStudentInfo(student) {
  // 4. Ствроіть функцію getStudentsNames(students) --> ["Anton", "Tanya, "Victor"] – яка повертає імена студентів у алфавітному порядку.
 
 function getStudentsNames(students) {
+
   let arrNameStudents = [];
+
   for (const key in students) {
     arrNameStudents.push(students[key].name);
   }
+
   return arrNameStudents.sort();
 }
 
@@ -112,11 +117,10 @@ console.log(getBestStudent(students));
 function calculateWordLetters(string) {
   const obj = {};
   const arrString = string.split("");
-   const result = arrString.reduce((prev, current) => {
+  return arrString.reduce((prev, current) => {
     prev[current] = (prev[current] || 0) + 1;
     return prev;
   }, obj);
-  return result;
 }
 
 console.log(calculateWordLetters("тест"));
