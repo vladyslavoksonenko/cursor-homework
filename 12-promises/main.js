@@ -1,21 +1,27 @@
 
 function getRandomChinese(length = 4) {
-  let i = 0;
-  let result = "";
-    const promise = new Promise((resolve) => {
-      setInterval(() => {
-        if (i !== length) {
-          const sing = Date.now().toString().slice(-length);
-          result += String.fromCharCode(sing);
-          i++;
-        } else {
-          resolve(result);
-        }
-      }, 50)
-    }).then((i) => {
-      console.log(i);
-    })
+  let result = ""
+  for (let i = 0; i < length; i++) {
+  new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(getRandomChine(length));
+      }, 500);
+  }).then((char) => {
+    result += char
+    console.log(result);
+  })
+  }
   
 }
+
+
+function getRandomChine(length) {
+
+  const sing = Date.now().toString().slice(-length);
+  return String.fromCharCode(sing);
+  
+}
+
+
 
 getRandomChinese(4);

@@ -70,7 +70,6 @@ function httpsReplace(url) {
 }
 
 function requestForServer(url) {
-  console.log(httpsReplace(url))
   return fetch(httpsReplace(url))
   .then((response) => {
     return response.json();
@@ -128,9 +127,6 @@ function getPeoples() {
                   let urlImg = `img/noname.jpeg`;
                   photo.setAttribute("src", urlImg);
                 })
-                // urlImg = `img/${data.name}.webp`
-                // photo.setAttribute("src", urlImg);
-                // console.log(photo.header);
               photo.setAttribute("class", "people__photo");
               const namePeople = document.createElement('div');
               namePeople.setAttribute("class", "people__name")
@@ -170,7 +166,6 @@ function getPlanets(index = 1) {
   return new Promise(() => {
     planet.innerHTML = "";
     let urlPlanet = `${planetsUrl}${index}`
-    console.log(urlPlanet)
     requestForServer(urlPlanet)
     .then((data) => {
       console.log(data);
