@@ -33,12 +33,16 @@ select.addEventListener("change", function () {
   getPlanets();
 });
 planetButtons[0].addEventListener("click", () => {
-  index--;
+  if (index > 1) {
+    index--;
     getPlanets(index);
+  }
 })
 planetButtons[1].addEventListener("click", () => {
-  index++;
-  getPlanets(index);
+  if (index < 60) {
+    index++;
+    getPlanets(index);
+  }
 })
 
 init();
@@ -166,7 +170,6 @@ function getPlanets(index = 1) {
     let urlPlanet = `${planetsUrl}${index}/`
     requestForServer(urlPlanet)
     .then((data) => {
-      console.log(data);
         const namePlanet = document.createElement("div");
         namePlanet.innerHTML = `Планета: ${data.name}`;
         const photo = document.createElement("img");
