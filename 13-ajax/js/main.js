@@ -57,9 +57,7 @@ function init() {
 }
 
 function httpsReplace(url) {
-
   if (url[4] !== "s"){
-
     let httpsUrl = url.replace("http", "https");
     return httpsUrl;
 
@@ -165,7 +163,7 @@ function getPeoples() {
 function getPlanets(index = 1) {
   return new Promise(() => {
     planet.innerHTML = "";
-    let urlPlanet = `${planetsUrl}${index}`
+    let urlPlanet = `${planetsUrl}${index}/`
     requestForServer(urlPlanet)
     .then((data) => {
       console.log(data);
