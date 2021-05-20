@@ -35,6 +35,7 @@ function getSubjects(student) {
   listSubjects.map((element, index) => {
     listSubjects[index] = element[0].toUpperCase() + element.slice(1).replaceAll(/_/g, " ");
   });
+  
   return listSubjects;
 };
 
@@ -48,18 +49,17 @@ console.log(getSubjects(students[0]));
 function getAverageMark(student) {
   let arrRating = [];
   let sumRating = 0;
-  
-    // for (key in student.subjects) {
-    //   arrRating.push(student.subjects[key]);
-    // }
 
-    arrRating = Object.values(students.subjects);
-    console.log(arrRating);
-    arrRating = arrRating.flat(Infinity);
-    arrRating.map((element) => sumRating += element)
-    const result = (sumRating / arrRating.length).toFixed(2);
-   return result;
-}
+  arrRating.push(Object.values(student.subjects));
+  arrRating = arrRating.flat(Infinity);
+  sumRating = arrRating.reduce((previousValue, currentValue) => {
+    return previousValue + currentValue;
+  })
+
+  const result = (sumRating / arrRating.length).toFixed(2);
+
+  return result;
+};
 
 console.log(getAverageMark(students[0]));
 
@@ -67,23 +67,21 @@ console.log(getAverageMark(students[0]));
 // – яка повертає інформацію загального виду по переданому студенту (вам знадобиться функція з попереднього завдання). 
 // Повинна бути виведена інформація: курс, ім'я, середня оцінка.
 
-//console.log(getAverageMark(students[0]));
-
 function getStudentInfo(student) {
   const result = {
     course: student.course,
     name: student.name,
     averageMark: getAverageMark(student)
   }
-  return result;
-}
 
- console.log(getStudentInfo(students[0]));
+  return result;
+};
+
+console.log(getStudentInfo(students[0]));
 
  // 4. Ствроіть функцію getStudentsNames(students) --> ["Anton", "Tanya, "Victor"] – яка повертає імена студентів у алфавітному порядку.
 
 function getStudentsNames(students) {
-
   let arrNameStudents = [];
 
   for (const key in students) {
@@ -116,11 +114,14 @@ console.log(getBestStudent(students));
 
 function calculateWordLetters(string) {
   const obj = {};
+  
   const arrString = string.split("");
-  return arrString.reduce((prev, current) => {
+  const result = arrString.reduce((prev, current) => {
     prev[current] = (prev[current] || 0) + 1;
     return prev;
   }, obj);
+
+  return result;
 }
 
 console.log(calculateWordLetters("тест"));
